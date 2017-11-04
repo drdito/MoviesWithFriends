@@ -26,13 +26,13 @@
 
     //set up ajax call to return reddit info within a function      
     function redditCall() {
-        var searchTerm = $("#movie").val().trim();
+        var movieName = $("#movie").val().trim();
 
         $.ajax({
             type: "GET",
             url: "https://www.reddit.com/r/movies/search.json",
             data: {
-                q: searchTerm,
+                q: movieName,
                 restrict_sr: true,
                 sort: "hot",
                 raw_json: 1
@@ -44,15 +44,17 @@
                         $("#content").append("<div><h3>" + 
                         post.data.title + "</h3><p>Author: " +
                         post.data.author + "</p><p>Reddit Score: " + 
-                        post.data.score + "</p>" + 
-                        post.data.selftext_html + "</div>");
+                        post.data.score + "</p><p>" + 
+                        post.data.selftext_html + "</p><p><a href='" +
+                        post.data.url + "'>Source</a></p></div>");
                     }
                     else {
                         $("#content").append("<div><h3>" +
                         post.data.title + "</h3><p>Author: " +
                         post.data.author + "</p><p>Reddit Score: " +
                         post.data.score + "</p><img src='" +
-                        post.data.thumbnail + "' alt='preview image'></div>");
+                        post.data.thumbnail + "' alt='preview image'><p><a href='" +
+                        post.data.url + "'>Source</a></p></div>");
                     } 
                 })              
             }   
