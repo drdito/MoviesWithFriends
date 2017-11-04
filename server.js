@@ -10,7 +10,7 @@ bodyParser = require('body-parser'),
 cookieParser = require('cookie-parser'),
 session = require('express-session'),
 exphbs = require("express-handlebars");
-User = require('./models/user'),
+User = require('./models/users.js'),
 app = express();
 
 //Middleware declaration for body-parser
@@ -29,7 +29,7 @@ app.set("view engine", "handlebars");
 
 //Define controller to bring back our user data from user model
 var userRoutes = require("./controllers/userController.js");
-app.use("/login", routes);
+app.use("/login", userRoutes);
 
 //Middleware to authenticate through passport
 app.use(bodyParser());
