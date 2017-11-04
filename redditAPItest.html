@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>movies </title>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery.js"></script>
+</head>
+<body>
+    <form> 
+        <label>Enter your favorite movie:</label>
+        <input type="text" id="movie"></input>
+    </form>
+    <button id="click">CLICK ME</button>
+    <div id="content">
+
+    </div>
+</body> 
+<script>
+
+
+    // On click, call redditCall function
+    $("#click").on("click", function() {
+        redditCall();
+    });  
+
+
+    //set up ajax call to return reddit info within a function      
+    function redditCall() {
+        var movieName = $("#movie").val().trim();
+
+        $.ajax({
+            type: "GET",
+            url: "https://www.reddit.com/r/movies/search.json",
+            data: {
+                q: movieName,
+                restrict_sr: true,
+                sort: "hot",
+                raw_json: 1
+            },
+            success: function(response) {
+                var children = response.data.children;
+                $.each(children, function(i, post) {
+                    if(post.data.selftext_html) {
+                        $("#content").append("<div><h3>" + 
+                        post.data.title + "</h3><p>Author: " +
+                        post.data.author + "</p><p>Reddit Score: " + 
+                        post.data.score + "</p><p>" + 
+                        post.data.selftext_html + "</p><p><a href='" +
+                        post.data.url + "'>Source</a></p></div>");
+                    }
+                    else {
+                        $("#content").append("<div><h3>" +
+                        post.data.title + "</h3><p>Author: " +
+                        post.data.author + "</p><p>Reddit Score: " +
+                        post.data.score + "</p><img src='" +
+                        post.data.thumbnail + "' alt='preview image'><p><a href='" +
+                        post.data.url + "'>Source</a></p></div>");
+                    } 
+                })              
+            }   
+        });
+    };
+
+        
+</script>
+
+</html>
