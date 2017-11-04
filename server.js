@@ -27,9 +27,13 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
+//Define controller to bring back our movie data from movie model
+var movieRoutes = require("./controllers/movieController.js")
+app.use("/profile", movieRoutes);
+
 //Define controller to bring back our user data from user model
 var userRoutes = require("./controllers/userController.js");
-app.use("/login", userRoutes);
+app.use("/", userRoutes);
 
 //Middleware to authenticate through passport
 app.use(bodyParser());
