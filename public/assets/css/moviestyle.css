@@ -1,0 +1,12 @@
+body {
+  background-image: url("../images/filmback.jpg");
+}
+
+.movieHeader {
+  font-family: 'Shrikhand', cursive;
+}
+
+.vertical-center {
+  position: absolute;
+  top: 44px;
+}
