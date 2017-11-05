@@ -7,6 +7,18 @@ body {
 }
 
 .vertical-center {
-  position: absolute;
+  position: relative;
   top: 44px;
+  background-color: rgba(62, 62, 62, 0.62);
+  color: white;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #252729;
+  border-color: #a8abad;
+}
+
+.form-control {
+  width: 50%;
 }
