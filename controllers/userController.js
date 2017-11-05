@@ -31,7 +31,6 @@ router.post("/profile", function(req, res) {
               .findOne({where: {username:users[i].dataValues.username}})
               .then(function(user) {
                 moviesArray = user.dataValues.favoriteMovie.split(",");
-                console.log(moviesArray);
                 res.render("actualPage", {
                   user: user.dataValues.username,
                   movies: moviesArray

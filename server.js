@@ -20,7 +20,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 //Allows us to use local styling from our public/assets folder.
-app.use(express.static(__dirname + "./public"));
+app.use(express.static('public'));
 
 //Handlebars Engine
 app.engine("handlebars", exphbs({
