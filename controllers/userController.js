@@ -1,7 +1,7 @@
 //*************** Robot Unicorn Attack*********************
 //***************Movies with Friends***********************
-//*********User Controller*****************
-//*********./controllers/userController****
+//***************User Controller***************************
+//***************./controllers/userController**************
 
 //Bringing in required dependencies
 var express = require("express");
@@ -9,13 +9,13 @@ var router = express.Router();
 var path = require("path");
 var db = require("../models");
 
-//Getting raw login screen "http://server/login"
+//Getting raw login screen "http://server/"
 router.get("/", function(req, res) {
   res.render("login");
 });
 
-//Posting user input from front end to check if exists in database "http://server/login/validation"
-router.post("/validation", function(req, res) {
+//Posting user input from front end to check if exists in database "http://server/profile"
+router.post("/profile", function(req, res) {
   var userFound = false;
   var passwordFound = false;
     db.User
@@ -26,7 +26,17 @@ router.post("/validation", function(req, res) {
           userFound = true;
           if (users[i].dataValues.hash === req.body.password) {
             passwordFound = true;
-            res.render("actualPage", {user: users[i].dataValues.username});
+            var moviesArray=[];
+            db.User
+              .findOne({where: {username:users[i].dataValues.username}})
+              .then(function(user) {
+                moviesArray = user.dataValues.favoriteMovie.split(",");
+                console.log(moviesArray);
+                res.render("actualPage", {
+                  user: user.dataValues.username,
+                  movies: moviesArray
+                }) 
+              });
           }
         }
       }
@@ -36,12 +46,12 @@ router.post("/validation", function(req, res) {
     });    
 });
 
-//If user selects to signup, page renders signup page through handlebars "http://server/login/create"
+//If user selects to signup, page renders signup page through handlebars "http://server/create"
 router.get("/create", function(req, res) {
     res.render("signup");
 });
 
-//Posts new user information into user table of the moviesWithFriends_db "http://server/login/create/new"
+//Posts new user information into user table of the moviesWithFriends_db "http://server/create/new"
 router.post("/create/new", function(req, res) {
     // if statement to check if fields are not blank
     if (req.body.newUser && req.body.newPass && req.body.movies1 && req.body.movies2 && req.body.movies3 && req.body.movies4 && req.body.movies5) {

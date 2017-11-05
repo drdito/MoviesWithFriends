@@ -1,7 +1,7 @@
-//*************** Robot Unicorn Attack*********************
-//***************Movies with Friends***********************
-//*********Movies Model*****************
-//*********./models/movies***************
+//***************Robot Unicorn Attack*************
+//***************Movies with Friends**************
+//***************Movies Model*********************
+//***************./models/movies.js***************
 
 module.exports = function(sequelize, DataTypes) {
     var Movie = sequelize.define("movies", {

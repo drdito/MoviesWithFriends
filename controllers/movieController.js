@@ -7,9 +7,9 @@
 var express = require("express");
 var router = express.Router();
 var path = require("path");
-var db = require("../models/movies.js");
+var db = require("../models");
 
-//Getting main home profile page "http://server/"
+//Getting main home profile page "http://server/profile"
 router.get("/", function(req, res) {
   res.render("actualPage");
 });
