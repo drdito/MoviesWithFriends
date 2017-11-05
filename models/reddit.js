@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
     var reddit = sequelize.define("reddit", {
         userId: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
             validate: {
                 len: [1, 10]
             }

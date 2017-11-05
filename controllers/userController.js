@@ -7,7 +7,7 @@
 var express = require("express");
 var router = express.Router();
 var path = require("path");
-var db = require("../models/users.js");
+var db = require("../models");
 
 //Getting raw login screen "http://server/login"
 router.get("/", function(req, res) {
@@ -18,7 +18,7 @@ router.get("/", function(req, res) {
 router.post("/validation", function(req, res) {
   var userFound = false;
   var passwordFound = false;
-    db
+    db.User
     .findAll()
     .then (function(users) {
       for(var i = 0; i < users.length; i++) {
@@ -44,13 +44,14 @@ router.get("/create", function(req, res) {
 //Posts new user information into user table of the moviesWithFriends_db "http://server/login/create/new"
 router.post("/create/new", function(req, res) {
     // if statement to check if fields are not blank
-    if (req.body.newUser && req.body.newPass) {
+    if (req.body.newUser && req.body.newPass && req.body.movies1 && req.body.movies2 && req.body.movies3 && req.body.movies4 && req.body.movies5) {
     
     //restful call to create a new user
-    db.create({
+    db.User.create({
         username: req.body.newUser,
         hash: req.body.newPass,
-        salt: "Hello User"
+        salt: "Hello User",
+        favoriteMovie: req.body.movies1 + "," + req.body.movies2 + "," + req.body.movies3 + "," + req.body.movies4 + "," + req.body.movies5
     })
       .then(function(newUser) {
       

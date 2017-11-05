@@ -5,13 +5,12 @@
 //Bringing in necessary dependencies.
 var express = require('express'),
 passport = require('passport'),
-port = process.env.PORT || 8080;
+PORT = process.env.PORT || 8080;
 bodyParser = require('body-parser'),
 cookieParser = require('cookie-parser'),
 session = require('express-session'),
 exphbs = require("express-handlebars"),
-passportLocalSequelize = require('passport-local-sequelize'),
-db = require("./models/");
+db = require("./models");
 app = express();
 
 //Middleware declaration for body-parser
@@ -45,13 +44,13 @@ app.use(session({ secret: 'super-secret' }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(User.createStrategy());
+passport.use(db.User.createStrategy());
 
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+passport.serializeUser(db.User.serializeUser());
+passport.deserializeUser(db.User.deserializeUser());
 
 //Syncing with the database prior to listening on port 8080
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });

@@ -7,6 +7,8 @@ module.exports = function(sequelize, DataTypes) {
     var Movie = sequelize.define("movies", {
       title: DataTypes.STRING,
       genre: DataTypes.STRING
+    }, {
+      timestamps: false
     });
     return Movie;
   };
