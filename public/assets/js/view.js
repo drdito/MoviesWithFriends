@@ -17,7 +17,7 @@ function redditCall() {
       raw_json: 1
     },
     success: function (response) {
-      console.log(response);
+      return response;
     }
   });
 };
