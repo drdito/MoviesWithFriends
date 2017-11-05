@@ -36,6 +36,10 @@ app.use("/profile", movieRoutes);
 var userRoutes = require("./controllers/userController.js");
 app.use("/", userRoutes);
 
+//Define controller to bring back our movie data from movie model
+var redditRoutes = require("./controllers/redditController.js")
+app.use("/profile", redditRoutes);
+
 //Middleware to authenticate through passport
 app.use(require('connect-multiparty')());
 app.use(cookieParser());
