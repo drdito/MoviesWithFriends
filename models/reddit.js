@@ -1,11 +1,11 @@
 //*************** Robot Unicorn Attack*********************
 //***************Movies with Friends***********************
-//*********Movies Model*****************
-//*********./models/movies****
+//*********Reddit Model*****************
+//*********./models/reddit****
 
 module.exports = function (sequelize, DataTypes) {
-    var movies = sequelize.define("movies", {
-        movieId: {
+    var reddit = sequelize.define("reddit", {
+        userId: {
             type: DataTypes.INTEGER,
             allowNull: false
             validate: {
@@ -15,19 +15,25 @@ module.exports = function (sequelize, DataTypes) {
         title: {
             type: DataTypes.STRING,
             allowNull: false
-            validate: {
-                len: [1, 160]
-            }
         },
-        genres: {
+        author: {
             type: DataTypes.STRING,
             allowNull: false
-            validate: {
-                len: [1, 100]
-            }
+        },
+        score: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        content: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        link: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
     }, {
             timestamps: false
         });
-    return movies;
+    return reddit;
 };

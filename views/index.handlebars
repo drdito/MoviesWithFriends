@@ -1,0 +1,21 @@
+<form>
+    <label>Enter your favorite movie:</label>
+    <input type="text" id="movie"></input>
+</form>
+<button id="click">CLICK ME</button>
+<div id="content">
+    {{#each reddit}}
+        <div class="post">
+            <h3>{{this.title}}</h3>
+            <p>Author: {{this.author}} </p>
+            <p>Reddit Score: {{this.score}} </p>
+            <p> {{this.content}} </p>
+            <p><a href="{{this.link}}">Source</a></p>
+        </div>
+    {{/each}}
+</div>
+<div id="movies">
+    {{#each movies}}
+        
+    {{/each}}
+</div>
