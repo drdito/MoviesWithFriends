@@ -1,33 +1,13 @@
 //*************** Robot Unicorn Attack*********************
 //***************Movies with Friends***********************
 //*********Movies Model*****************
-//*********./models/movies****
+//*********./models/movies***************
 
-module.exports = function (sequelize, DataTypes) {
-    var movies = sequelize.define("movies", {
-        movieId: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-            validate: {
-                len: [1, 10]
-            }
-        },
-        title: {
-            type: DataTypes.STRING,
-            allowNull: false
-            validate: {
-                len: [1, 160]
-            }
-        },
-        genres: {
-            type: DataTypes.STRING,
-            allowNull: false
-            validate: {
-                len: [1, 100]
-            }
-        }
-    }, {
-            timestamps: false
-        });
-    return movies;
-};
+module.exports = function(sequelize, DataTypes) {
+    var Movie = sequelize.define("movies", {
+      title: DataTypes.STRING,
+      genre: DataTypes.STRING
+    });
+    return Movie;
+  };
+  

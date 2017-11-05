@@ -9,14 +9,16 @@ port = process.env.PORT || 8080;
 bodyParser = require('body-parser'),
 cookieParser = require('cookie-parser'),
 session = require('express-session'),
-exphbs = require("express-handlebars");
-User = require('./models/users.js'),
+exphbs = require("express-handlebars"),
+passportLocalSequelize = require('passport-local-sequelize'),
+db = require("./models/");
 app = express();
 
 //Middleware declaration for body-parser
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 //Allows us to use local styling from our public/assets folder.
 app.use(express.static(__dirname + "./public"));
@@ -36,7 +38,6 @@ var userRoutes = require("./controllers/userController.js");
 app.use("/", userRoutes);
 
 //Middleware to authenticate through passport
-app.use(bodyParser());
 app.use(require('connect-multiparty')());
 app.use(cookieParser());
 app.use(session({ secret: 'super-secret' }));
@@ -50,6 +51,8 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 //Syncing with the database prior to listening on port 8080
-User.sequelize.sync().then(function() {
-  app.listen(port);
+db.sequelize.sync({ force: true }).then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
 });
