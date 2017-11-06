@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "root",
-    "password": "Dantheman065$",
+    "password": "L0v3myjp!",
     "database": "movieswithfriends_db",
-    "host": "127.0.0.1",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
