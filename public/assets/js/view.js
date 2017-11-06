@@ -2,8 +2,8 @@
 window.onhashchange = pleaseWork();
 // If the profile page is loaded, run an ajax call to the reddit API
 function pleaseWork() {
-  console.log("location.href: " + window.location.href);
   if (location.href === "http://localhost:8080/profile") {
+    // console.log("user is " + $("#user").html());
     redditCall();
   }
 }
@@ -18,29 +18,44 @@ function redditCall() {
     data: {
       // q: movieName,
       restrict_sr: true,
-      sort: "hot",
+      sort: "top",
+      t: "month",
       raw_json: 1
     },
     success: function (response) {
       var children = response.data.children;
       $.each(children, function (i, post) {
         if (post.data.selftext_html) {
-          $("#redditData").append("<div><h3>" +
-            post.data.title + "</h3><p>Author: " +
+          $("#redditData").append("<li class='redditPost'><h6>" +
+            post.data.title + "</h6><p>Author: " +
             post.data.author + "</p><p>Reddit Score: " +
             post.data.score + "</p><p>" +
             post.data.selftext_html + "</p><p><a href='" +
-            post.data.url + "'>Source</a></p></div>");
+            post.data.url + "'>Source</a></p></li>");
         }
         else {
-          $("#redditData").append("<div><h3>" +
-            post.data.title + "</h3><p>Author: " +
+          $("#redditData").append("<li class='redditPost'><h6>" +
+            post.data.title + "</h6><p>Author: " +
             post.data.author + "</p><p>Reddit Score: " +
             post.data.score + "</p><img src='" +
             post.data.thumbnail + "' alt='preview image'><p><a href='" +
-            post.data.url + "'>Source</a></p></div>");
+            post.data.url + "'>Source</a></p></li>");
         }
       })
     }
   });
 };
+
+$(document).ready(function () {
+
+  $('#sidebar').niceScroll({
+    cursorcolor: '#53619d', // Changing the scrollbar color
+    cursorwidth: 4, // Changing the scrollbar width
+    cursorborder: 'none', // Rempving the scrollbar border
+  });
+
+  $('#sidebarCollapse').on('click', function () {
+    $('#sidebar').toggleClass('active');
+  });
+
+});

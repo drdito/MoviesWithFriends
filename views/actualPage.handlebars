@@ -1,4 +1,4 @@
-<div class ="container">
+{{!-- <div class ="container">
   <div class="jumbotron text-center">
     <h1>Hello <span id="user">{{user}}</span></h1>
     <br>
@@ -8,7 +8,71 @@
       {{/each}}
     </ul>
   </div>
-  <div id="redditData">
-  
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+    <div class="sidebar-nav" id="redditData">
+      <h4>Movie Forum</h4>
+    </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
+</div> --}}
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Movies With Friends</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <form class="form-inline mt-2 mt-md-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search Movies" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search">Search</button>
+      </form>
+    </div>
+  </nav>
+</header>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+      <h4>Movie Forum</h4>
+      <ul class="nav nav-pills flex-column" id="redditData">
+
+      </ul>
+    </nav>
+
+     {{!--Main page content--}}
+    <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+      <div class="row" id="welcome">
+        <div id="screen" class="col-8">
+          <img src="/assets/images/movieScreen.jpg" alt="movie screen" class="img-fluid">
+          <h1>Welcome {{user}}</h1>
+        </div>
+      </div>
+
+       {{!--Favorite Movies--}}
+      <section class="row text-center placeholders">
+        <div class="col-12">
+          <h2>Favorite Movies</h2>
+        </div>
+        {{#each movies}}
+        <div class="col-6 col-sm-2 placeholder">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=" width="200" height="200" class="img-fluid rounded-circle"
+            alt="Generic placeholder thumbnail">
+          <h4>{{this}}</h4>
+          <div class="text-muted">Something else</div>
+        </div>
+        {{/each}}
+      </section>
+
+       {{!--Friends--}}
+      <section class="row text-center placeholders">
+        <div class="col-12">
+          <h2>Your Friends</h2>
+        </div>
+      </section>
+
+    </main>
   </div>
 </div>
