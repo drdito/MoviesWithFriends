@@ -24,7 +24,12 @@ app.use(express.static('public'));
 
 //Handlebars Engine
 app.engine("handlebars", exphbs({
-  defaultLayout: "main"
+  defaultLayout: "main",
+  helpers: {
+    json: function (context) {
+      return JSON.stringify(context);
+    }
+  }
 }));
 app.set("view engine", "handlebars");
 
@@ -35,10 +40,6 @@ app.use("/profile", movieRoutes);
 //Define controller to bring back our user data from user model
 var userRoutes = require("./controllers/userController.js");
 app.use("/", userRoutes);
-
-//Define controller to bring back our movie data from movie model
-var redditRoutes = require("./controllers/redditController.js")
-app.use("/profile", redditRoutes);
 
 //Middleware to authenticate through passport
 app.use(require('connect-multiparty')());
