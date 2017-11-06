@@ -1,21 +1,28 @@
 <div class="container">
-  <div class="jumbotron vertical-center">
-    
+
+  <div class="col-12">
     <h1 class="movieHeader">Movies with Friends!</h1>
-    <hr>
-    <h2 class="movieHeader2">Please Login or Signup Below:</h2>
-    
-    <form class="class-form" action="/profile" method="POST">
-      
-      <label for="usr"><strong>Username:</strong></label>
-      <input type="text" class="form-control" id="usr" name="username">
-   
-      <label for="pwd"><strong>Password:</strong></label>
-      <input type="password" class="form-control" id="pwd" name="password">
-      
-      <br>
-      <button type="submit" class="btn btn-primary login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp Login</button>
-      <a href="/create"><button type="button" class="btn btn-primary signUp"><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp Signup</button></a>
-    </form>
   </div>
+
+  <div class="loginForm">
+    <img src="/assets/images/clapBoard.png" alt="clapboard" class="img-fluid">
+    <div class="formContent">
+      <h2 class="movieHeader2">Please Login or Signup Below:</h2>
+
+      <form class="class-form" action="/profile" method="POST">
+        
+        <label for="usr"><strong>Username:</strong></label>
+        <input type="text" class="form-control" id="usr" name="username">
+    
+        <label for="pwd"><strong>Password:</strong></label>
+        <input type="password" class="form-control" id="pwd" name="password">
+        
+        <br>
+        <button type="submit" class="btn btn-primary login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp Login</button>
+        <a href="/create"><button type="button" class="btn btn-primary signUp"><i class="fa fa-thumbs-up" aria-hidden="true"></i>&nbsp Signup</button></a>
+      </form>
+    </div>
+  </div>
+
+    
 </div>
