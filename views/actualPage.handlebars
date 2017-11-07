@@ -22,7 +22,7 @@
       <div class="row" id="welcome">
         <div id="screen" class="col-8">
           <img src="/assets/images/movieScreen.jpg" alt="movie screen" class="img-fluid">
-          <h1>Welcome {{user}}</h1>
+          <h1>Welcome <span  id="user">{{user}}</span></h1>
         </div>
       </div>
 
@@ -34,8 +34,8 @@
         <div class="col-sm-1"></div>
         {{#each movies}}
         <div class="col-6 col-sm-2 placeholder">
-          <img src="http://via.placeholder.com/200x300" width="200" class="img-thumbnail" alt="Generic placeholder">
-          <h4 class="movieTitle">{{this}}</h4>
+          <img id="movie{{@index}}" src="http://via.placeholder.com/200x300" width="200" class="img-thumbnail" alt="Generic placeholder">
+          <h4 class="movieTitle" id="title{{@index}}">{{this}}</h4>
         </div>
         {{/each}}
         <div class="col-sm-1"></div>
