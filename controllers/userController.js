@@ -9,6 +9,7 @@ var router = express.Router();
 var path = require("path");
 var db = require("../models");
 
+
 //Getting raw login screen "http://server/"
 router.get("/", function(req, res) {
   res.render("login");
@@ -53,7 +54,7 @@ router.post("/profile", function(req, res) {
                 res.render("actualPage", {
                   user: user.dataValues.username,
                   movies: moviesArray,
-                  suggestedFriends: suggestedFriendsArray
+                  friend: suggestedFriendsArray
                 }) 
               });
           }
