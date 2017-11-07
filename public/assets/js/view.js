@@ -5,7 +5,11 @@ function ProfileUpload() {
   console.log("The username is " + $("#user").html());
   if (location.href === "http://localhost:8080/profile") {
     // console.log("user is " + $("#user").html());
-    redditCall();
+    redditCall0();
+    redditCall1();
+    redditCall2();
+    redditCall3();
+    redditCall4();
     OMDBCall0();
     OMDBCall1();
     OMDBCall2();
@@ -15,37 +19,190 @@ function ProfileUpload() {
 }
 
 // Ajax call to return reddit info and write to HTML     
-function redditCall() {
+function redditCall0() {
 
-  // var movieName = $("#movie").val().trim();
+  var movieName = ($("#title0").html());
   $.ajax({
     type: "GET",
     url: "https://www.reddit.com/r/movies/search.json",
     data: {
-      // q: movieName,
+      q: movieName,
       restrict_sr: true,
       sort: "top",
       t: "month",
+      limit: 5,
       raw_json: 1
     },
     success: function (response) {
       var children = response.data.children;
       $.each(children, function (i, post) {
         if (post.data.selftext_html) {
-          $("#redditData").append("<li class='redditPost'><h6>" +
-            post.data.title + "</h6><p>Author: " +
+          $("#redditData").append("<li class='redditPost'><h6><a href='" +
+            post.data.url + "' target='_blank'>" +
+            post.data.title + "</h6></a><p>Author: " +
             post.data.author + "</p><p>Reddit Score: " +
             post.data.score + "</p><p>" +
-            post.data.selftext_html + "</p><p><a href='" +
-            post.data.url + "'>Source</a></p></li>");
+            post.data.selftext_html + "</p></li><hr>");
         }
         else {
-          $("#redditData").append("<li class='redditPost'><h6>" +
-            post.data.title + "</h6><p>Author: " +
+          $("#redditData").append("<li class='redditPost'><h6><a href='" +
+            post.data.url + "' target='_blank'>" +
+            post.data.title + "</h6></a><p>Author: " +
             post.data.author + "</p><p>Reddit Score: " +
             post.data.score + "</p><img src='" +
-            post.data.thumbnail + "' alt='preview image'><p><a href='" +
-            post.data.url + "'>Source</a></p></li>");
+            post.data.thumbnail + "' alt='preview image'></li><hr>");
+        }
+      })
+    }
+  });
+};
+
+function redditCall1() {
+
+  var movieName = ($("#title1").html());
+  $.ajax({
+    type: "GET",
+    url: "https://www.reddit.com/r/movies/search.json",
+    data: {
+      q: movieName,
+      restrict_sr: true,
+      sort: "top",
+      t: "month",
+      limit: 5,
+      raw_json: 1
+    },
+    success: function (response) {
+      var children = response.data.children;
+      $.each(children, function (i, post) {
+        if (post.data.selftext_html) {
+          $("#redditData").append("<li class='redditPost'><h6><a href='" +
+            post.data.url + "' target='_blank'>" +
+            post.data.title + "</h6></a><p>Author: " +
+            post.data.author + "</p><p>Reddit Score: " +
+            post.data.score + "</p><p>" +
+            post.data.selftext_html + "</p></li><hr>");
+        }
+        else {
+          $("#redditData").append("<li class='redditPost'><h6><a href='" +
+            post.data.url + "' target='_blank'>" +
+            post.data.title + "</h6></a><p>Author: " +
+            post.data.author + "</p><p>Reddit Score: " +
+            post.data.score + "</p><img src='" +
+            post.data.thumbnail + "' alt='preview image'></li><hr>");
+        }
+      })
+    }
+  });
+};
+
+function redditCall2() {
+
+  var movieName = ($("#title2").html());
+  $.ajax({
+    type: "GET",
+    url: "https://www.reddit.com/r/movies/search.json",
+    data: {
+      q: movieName,
+      restrict_sr: true,
+      sort: "top",
+      t: "month",
+      limit: 5,
+      raw_json: 1
+    },
+    success: function (response) {
+      var children = response.data.children;
+      $.each(children, function (i, post) {
+        if (post.data.selftext_html) {
+          $("#redditData").append("<li class='redditPost'><h6><a href='" +
+            post.data.url + "' target='_blank'>" +
+            post.data.title + "</h6></a><p>Author: " +
+            post.data.author + "</p><p>Reddit Score: " +
+            post.data.score + "</p><p>" +
+            post.data.selftext_html + "</p></li><hr>");
+        }
+        else {
+          $("#redditData").append("<li class='redditPost'><h6><a href='" +
+            post.data.url + "' target='_blank'>" +
+            post.data.title + "</h6></a><p>Author: " +
+            post.data.author + "</p><p>Reddit Score: " +
+            post.data.score + "</p><img src='" +
+            post.data.thumbnail + "' alt='preview image'></li><hr>");
+        }
+      })
+    }
+  });
+};
+
+function redditCall3() {
+
+  var movieName = ($("#title3").html());
+  $.ajax({
+    type: "GET",
+    url: "https://www.reddit.com/r/movies/search.json",
+    data: {
+      q: movieName,
+      restrict_sr: true,
+      sort: "top",
+      t: "month",
+      limit: 5,
+      raw_json: 1
+    },
+    success: function (response) {
+      var children = response.data.children;
+      $.each(children, function (i, post) {
+        if (post.data.selftext_html) {
+          $("#redditData").append("<li class='redditPost'><h6><a href='" +
+            post.data.url + "' target='_blank'>" +
+            post.data.title + "</h6></a><p>Author: " +
+            post.data.author + "</p><p>Reddit Score: " +
+            post.data.score + "</p><p>" +
+            post.data.selftext_html + "</p></li><hr>");
+        }
+        else {
+          $("#redditData").append("<li class='redditPost'><h6><a href='" +
+            post.data.url + "' target='_blank'>" +
+            post.data.title + "</h6></a><p>Author: " +
+            post.data.author + "</p><p>Reddit Score: " +
+            post.data.score + "</p><img src='" +
+            post.data.thumbnail + "' alt='preview image'></li><hr>");
+        }
+      })
+    }
+  });
+};
+
+function redditCall4() {
+
+  var movieName = ($("#title4").html());
+  $.ajax({
+    type: "GET",
+    url: "https://www.reddit.com/r/movies/search.json",
+    data: {
+      q: movieName,
+      restrict_sr: true,
+      sort: "top",
+      t: "month",
+      limit: 5,
+      raw_json: 1
+    },
+    success: function (response) {
+      var children = response.data.children;
+      $.each(children, function (i, post) {
+        if (post.data.selftext_html) {
+          $("#redditData").append("<li class='redditPost'><h6><a href='" + 
+            post.data.url + "' target='_blank'>" +
+            post.data.title + "</h6></a><p>Author: " +
+            post.data.author + "</p><p>Reddit Score: " +
+            post.data.score + "</p><p>" +
+            post.data.selftext_html + "</p></li><hr>");
+        }
+        else {
+          $("#redditData").append("<li class='redditPost'><h6><a href='" +
+            post.data.url + "' target='_blank'>" +
+            post.data.title + "</h6></a><p>Author: " +
+            post.data.author + "</p><p>Reddit Score: " +
+            post.data.score + "</p><img src='" +
+            post.data.thumbnail + "' alt='preview image'></li><hr>");
         }
       })
     }
