@@ -27,13 +27,33 @@ router.post("/profile", function(req, res) {
           if (users[i].dataValues.hash === req.body.password) {
             passwordFound = true;
             var moviesArray=[];
+            var suggestedFriendsArray = [];
+            for (var x = 0; x < users.length; x++) {
+              if (users[x].dataValues.username === users[i].dataValues.username) {
+                null;
+              }
+              else {
+                var userMovies = [];
+                var friendMovies =[];
+                var inCommon = [];
+                userMovies = users[i].dataValues.favoriteMovie.split(",");
+                friendMovies = users[x].dataValues.favoriteMovie.split(",");
+                inCommon = userMovies.filter(function(val) {
+                  return friendMovies.indexOf(val) != -1;
+                });
+                if (inCommon.length > 0) {
+                  suggestedFriendsArray.push(users[x].dataValues.username);
+                }
+              } 
+            }
             db.User
               .findOne({where: {username:users[i].dataValues.username}})
               .then(function(user) {
                 moviesArray = user.dataValues.favoriteMovie.split(",");
                 res.render("actualPage", {
                   user: user.dataValues.username,
-                  movies: moviesArray
+                  movies: moviesArray,
+                  suggestedFriends: suggestedFriendsArray
                 }) 
               });
           }
