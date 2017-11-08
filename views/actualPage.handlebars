@@ -5,7 +5,7 @@
     
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/">Logout</a>
         </li>
       </ul>
 
@@ -54,7 +54,13 @@
         <div class="col-12">
           <h2>Your Friends</h2>
           {{#each friend}}
-            <h6>{{this}}</h6>
+          <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="https://i.pinimg.com/originals/4c/a7/4d/4ca74d72c1c45a6b96086ec43a8319cf.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h4 class="card-title">{{this}}</h4>
+              <p class="card-text"></p>
+            </div>
+          </div>
           {{/each}}
         </div>
       </section>
