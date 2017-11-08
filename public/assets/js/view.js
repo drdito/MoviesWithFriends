@@ -15,6 +15,7 @@ function ProfileUpload() {
     OMDBCall2();
     OMDBCall3();
     OMDBCall4();
+    friendPicRender();
   }
 }
 
@@ -146,3 +147,33 @@ $(document).ready(function () {
   });
 
 });
+
+function friendPicRender() {
+  var friendPics = [
+    "/assets/images/celebPics/ash.jpg",
+    "/assets/images/celebPics/catwoman.jpg",
+    "/assets/images/celebPics/doctor.png",
+    "/assets/images/celebPics/katniss.jpg",
+    "/assets/images/celebPics/marty.jpg",
+    "/assets/images/celebPics/wonderWoman.jpg"
+  ];
+  friendPics = shuffle(friendPics);
+  for (var i = 0; i < $(".card-img-top").length; i++) {
+    $("#friend" + i).attr("src", friendPics[i]);
+  }
+}
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
