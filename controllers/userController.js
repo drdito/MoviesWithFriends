@@ -29,6 +29,7 @@ router.post("/profile", function(req, res) {
             passwordFound = true;
             var moviesArray=[];
             var suggestedFriendsArray = [];
+            var suggestedFriendsArrayInCommon =[];
             for (var x = 0; x < users.length; x++) {
               if (users[x].dataValues.username === users[i].dataValues.username) {
                 null;
@@ -44,6 +45,8 @@ router.post("/profile", function(req, res) {
                 });
                 if (inCommon.length > 0) {
                   suggestedFriendsArray.push(users[x].dataValues.username);
+                  suggestedFriendsArrayInCommon.push(inCommon);
+                  console.log(suggestedFriendsArrayInCommon);
                 }
               } 
             }
@@ -54,7 +57,8 @@ router.post("/profile", function(req, res) {
                 res.render("actualPage", {
                   user: user.dataValues.username,
                   movies: moviesArray,
-                  friend: suggestedFriendsArray
+                  friend: suggestedFriendsArray,
+                  inCommonMovies: suggestedFriendsArrayInCommon
                 }) 
               });
           }

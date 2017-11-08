@@ -5,7 +5,7 @@
     
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/">Logout</a>
         </li>
       </ul>
 
@@ -51,12 +51,20 @@
 
        {{!--Friends--}}
       <section class="row text-center placeholders">
-        <div class="col-12">
-          <h2>Your Friends</h2>
+        
+        <div class="col-6">
+          <h2>Suggested Friends</h2>
           {{#each friend}}
             <h6>{{this}}</h6>
           {{/each}}
         </div>
+        <div class="col-6">
+          <h2>Movies in Common with you</h2>
+          {{#each inCommonMovies}}
+            <h6>{{this}}</h6>
+          {{/each}}
+        </div>
+
       </section>
 
     </main>
