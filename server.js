@@ -56,7 +56,7 @@ passport.deserializeUser(db.User.deserializeUser());
 
 //Syncing with the database prior to listening on port 8080
 db.sequelize.sync({ force: false }).then(function() {
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+  app.listen(process.env.PORT || 8080, function() {
+    console.log("App listening on PORT ");
   });
 });
