@@ -163,14 +163,25 @@ main h2 {
   color: #4e1219;
   padding: 10px;
 }
+.friendList {
+  text-align: left;
+}
 
+.movieList {
+  text-align: right;
+}
 .card {
   float: left;
-  max-width: 120px;
+  max-width: 150px;
   background-color: #4e1219;
   margin: 10px;
+  text-align: center;
 }
 
 .card img {
-  max-width: 120px;
+  max-width: 150px;
+}
+
+.moviePoster {
+  background-color: #4e1219;
 }

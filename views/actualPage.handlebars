@@ -42,7 +42,7 @@
         <div class="col-sm-1"></div>
         {{#each movies}}
         <div class="col-6 col-sm-2 placeholder">
-          <img id="movie{{@index}}" src="http://via.placeholder.com/200x300" width="200" class="img-thumbnail" alt="Generic placeholder">
+          <img id="movie{{@index}}" src="http://via.placeholder.com/200x300" width="200" class="img-thumbnail moviePoster" alt="Generic placeholder">
           <h4 class="movieTitle" id="title{{@index}}">{{this}}</h4>
         </div>
         {{/each}}
@@ -52,19 +52,19 @@
        {{!--Friends--}}
       <section class="row text-center placeholders">
         
-        <div class="col-6">
+        <div class="col-6 friendList">
           <h2>Suggested Friends</h2>
           {{#each friend}}
           <div class="card" style="width: 20rem;">
-            <img class="card-img-top" src="https://i.pinimg.com/originals/4c/a7/4d/4ca74d72c1c45a6b96086ec43a8319cf.jpg" alt="Card image cap">
+            <img class="card-img-top" id="friend{{@index}}" src="" alt="Card image cap">
             <div class="card-body">
-              <h4 class="card-title">{{this}}</h4>
-              <p class="card-text"></p>
+              <h6 class="card-title">{{this}}</h6>
             </div>
           </div>
           {{/each}}
         </div>
-        <div class="col-6">
+
+        <div class="col-6 movieList">
           <h2>Movies in Common with you</h2>
           {{#each inCommonMovies}}
             <h6>{{this}}</h6>
