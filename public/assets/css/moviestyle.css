@@ -197,3 +197,9 @@ main h2 {
 .moviePoster {
   background-color: #4e1219;
 }
+
+.error {
+  max-width: 70%;
+  margin: auto;
+  text-align: center;
+}
