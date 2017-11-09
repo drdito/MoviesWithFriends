@@ -5,6 +5,7 @@ main {
 body {
   background-image: url("../images/filmback2.jpg");
   background-size: cover;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .loginForm {
@@ -12,6 +13,11 @@ body {
   margin: auto;
   color: #fff;
   font-family: 'Fredericka the Great', cursive;
+}
+
+.loginForm input {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: black;
 }
 
 .loginForm img {
@@ -180,6 +186,12 @@ main h2 {
 
 .card img {
   max-width: 150px;
+}
+
+.card-body {
+  height: 20px;
+  /* line-height: 20px; */
+  margin-bottom: 13px;
 }
 
 .moviePoster {
