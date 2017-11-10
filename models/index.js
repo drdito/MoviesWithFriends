@@ -3,7 +3,7 @@
 var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
-var basename  = path.basename(__filename);
+var basename  = path.basename(module.filename);
 var env       = process.env.JAWSB_URL || 'production';
 var config    = require(path.join(__dirname + './../config/config.json'))[env];
 var db        = {};

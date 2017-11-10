@@ -16,10 +16,9 @@
   "production": {
     "username": "aypnrrqsdvpllazs",
     "password": "xjjba3nh5kiyktjn",
-    "database": "xmvm0mp18drq2x10",
+    "database": "fo8qzok3eiuycujw",
     "host": "wp433upk59nnhpoh.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    "dialect": "mysql",
-    "use_env_variable": "mysql://aypnrrqsdvpllazs:xjjba3nh5kiyktjn@wp433upk59nnhpoh.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/fo8qzok3eiuycujw"
+    "dialect": "mysql"
   }
 }
 
