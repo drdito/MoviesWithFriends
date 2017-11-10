@@ -3,7 +3,7 @@ window.onhashchange = ProfileUpload();
 // If the profile page is loaded, render data from reddit and omdb
 function ProfileUpload() {
   console.log("The username is " + $("#user").html());
-  if (location.href === "http://localhost:8080/profile") {
+  if (location.href === "http://localhost:8080/profile" || location.href ==="https://movieswithfriends.herokuapp.com/profile") {
     // This is ugly, but for a reason. See notes below...
     redditCall0();
     redditCall1();
