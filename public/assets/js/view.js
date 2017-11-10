@@ -121,7 +121,7 @@ function postReddit(response) {
 function omdbAjax(movieName, x) {
   $.ajax({
     type: "GET",
-    url: "http://www.omdbapi.com/",
+    url: "https://www.omdbapi.com/",
     data: {
       apikey: "d577c18b",
       t: movieName,
